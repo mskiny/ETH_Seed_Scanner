@@ -1,0 +1,58 @@
+# ETH_Seed_Scanner .gitignore
+
+# Project specific
+.env
+seeds.env
+config.json
+results/
+logs/*.log
+agent_memory/
+memorybank/
+devdocs/
+
+# Security - files that might contain seed phrases
+tests/temp_files/
+**/test_hdwallet*.py
+**/*_test_seed.py
+**/test_seed_*.py
+**/*_seed_test.py
+# Local setup documentation (should not be committed)
+SETUP_GUIDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Windsurf rules
+.windsurfrules
