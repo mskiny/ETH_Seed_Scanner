@@ -132,7 +132,7 @@ def export_to_excel(df: pd.DataFrame, output_path: str, config: Optional[Dict[st
             df = df.drop('balance_eth', axis=1)
             
         # Create Excel writer
-        writer = pd.ExcelWriter(output_path, engine='openpyxl')
+        writer = pd.ExcelWriter(output_path, engine='xlsxwriter')
         
         # Order columns based on field_order, if specified
         columns = df.columns.tolist()
@@ -209,7 +209,7 @@ def export_to_excel(df: pd.DataFrame, output_path: str, config: Optional[Dict[st
                 address = df.iloc[row_num - 1]['address']
                 worksheet.write(row_num, etherscan_url_col_idx, f"View {address[:6]}...{address[-4:]}", workbook.add_format({'align': 'center', 'font_color': 'blue', 'underline': True}))
         
-        writer.save()
+        writer.close()
         logger.info(f"Results exported to Excel: {output_path}")
     except Exception as e:
         logger.error(f"Failed to export to Excel: {str(e)}")
