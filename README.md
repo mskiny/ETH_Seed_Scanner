@@ -29,7 +29,12 @@ ETH_Seed_Scanner automates the process of scanning BIP39 seed phrases to discove
   - bip32utils>=0.3.post4
   - mnemonic>=0.20.0
   - aiohttp>=3.8.0
+  - pandas>=2.0.0
+  - xlsxwriter>=3.0.0
+  - openpyxl>=3.0.10
+  - python-dotenv>=1.0.0
   - click>=8.0.0
+  - tqdm>=4.65.0
 - Etherscan API key
 
 ## 🚀 Installation
@@ -135,6 +140,27 @@ The `config/config.json` file allows customization of:
 
 # Enable detailed logging for invalid seed phrases
 .\run_scanner.ps1 --seed-file seeds.env --debug
+```
+
+## 📊 Data Export Options
+
+ETH_Seed_Scanner supports exporting data in multiple formats:
+
+### CSV Export
+Simple comma-separated values format for easy import into any spreadsheet software.
+
+### Excel Export
+Rich Excel format with the following enhancements:
+- Formatted headers with background color
+- Auto-sized columns for better readability
+- Date formatting for transaction dates
+- Yes/No formatting for the 'used' column
+- Clickable Etherscan links for each address
+- Column ordering based on config.json preferences
+
+To specify the export format, use the `--format` flag:
+```
+.\run_scanner.ps1 --seed-file seeds.env --format excel
 ```
 
 ## 🔍 Gap Limit Explanation
